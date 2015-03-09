@@ -1,0 +1,75 @@
+<head>
+<style>
+    #slideShowImages { /* The following CSS rules are optional. */
+      border: 1px gray solid;
+      background-color: lightgray;
+    }   
+  
+    #slideShowImages img { /* The following CSS rules are optional. */
+      border: 0.8em black solid;
+      padding: 3px;
+    }   
+  </style>
+  <script src="jssor.slider.min.js"></script>
+
+  </head>
+<body bgcolor='D2CFCF'>
+<img src='logo2.png'><br/>
+<hr>
+<marquee direction='left'>
+<br/><font color='blue' face='Hobo Std'> <h2>This is what we do.......</h2></font><br/></marquee>
+    <script language="javascript" type="text/javascript">
+<!-- Begin
+// Set slideShowSpeed (milliseconds)
+var slideShowSpeed = 2000;
+// Duration of crossfade (seconds)
+var crossFadeDuration = 3;
+// Specify the image files
+var Pic = new Array();
+// to add more images, just continue
+// the pattern, adding to the array below
+
+Pic[0] = 'a1.jpg'
+Pic[1] = 'a2.jpg'
+Pic[2] = 'a3.jpg'
+Pic[3] = 'a4.jpg'
+
+// do not edit anything below this line
+var t;
+var j = 0;
+var p = Pic.length;
+var preLoad = new Array();
+for (i = 0; i < p; i++) {
+preLoad[i] = new Image();
+preLoad[i].src = Pic[i];
+}
+function runSlideShow() {
+if (document.all) {
+document.images.SlideShow.style.filter="blendTrans(duration=2)";
+document.images.SlideShow.style.filter="blendTrans(duration=crossFadeDuration)";
+document.images.SlideShow.filters.blendTrans.Apply();
+}
+document.images.SlideShow.src = preLoad[j].src;
+if (document.all) {
+document.images.SlideShow.filters.blendTrans.Play();
+}
+j = j + 1;
+if (j > (p - 1)) j = 0;
+t = setTimeout('runSlideShow()', slideShowSpeed);
+}
+window.onload=runSlideShow;
+//  End -->
+</script>
+<center>
+<table border="2" cellpadding="0" cellspacing="0">
+<tr>
+<td id="VU" height=190 width=330>
+<img src="a1.jpg" name='SlideShow' width=800 height=400>
+</td>
+</tr>
+</table>
+</center>
+
+<br/>
+
+</body>
